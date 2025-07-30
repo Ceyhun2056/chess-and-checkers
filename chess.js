@@ -1,6 +1,9 @@
 // Chess Game Engine
+console.log('Chess.js loaded successfully');
+
 class ChessGame {
     constructor() {
+        console.log('ChessGame constructor called');
         this.gameMode = 'ai'; // 'ai' or 'player'
         this.difficulty = 2;
         this.currentPlayer = 'white';
@@ -682,5 +685,15 @@ class ChessGame {
 
 // Initialize game when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing chess game');
     window.game = new ChessGame();
+    console.log('Chess game initialized:', window.game);
+});
+
+// Fallback initialization
+window.addEventListener('load', () => {
+    if (!window.game) {
+        console.log('Fallback initialization');
+        window.game = new ChessGame();
+    }
 });
